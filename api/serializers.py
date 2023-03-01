@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from base.models import Player, Session
+from base.models import Player, Session, UserAccount
 
 
 class PlayerSerializer(serializers.ModelSerializer):
@@ -13,12 +13,13 @@ class PlayerSerializer(serializers.ModelSerializer):
         ]
 
 
-class PlayerPostSerializer(serializers.ModelSerializer):
+class UserAccountSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Player
+        model = UserAccount
         fields = [
-            'player_name',
-            'player_tag'
+            'player__name',
+            'player__tag',
+            'elo'
         ]
 
 
