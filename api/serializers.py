@@ -7,18 +7,23 @@ class PlayerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Player
         fields = [
-            'player_name',
-            'player_tag',
-            'player_elo'
+            'name',
+            'tag',
         ]
 
 
 class UserAccountSerializer(serializers.ModelSerializer):
+    name = serializers.SerializerMethodField()
+    tag = serializers.SerializerMethodField()
+
+    def get_name(self, obj): return obj.player.name
+    def get_tag(self, obj): return obj.player.name
+
     class Meta:
         model = UserAccount
         fields = [
-            'player__name',
-            'player__tag',
+            'name',
+            'tag',
             'elo'
         ]
 

@@ -106,7 +106,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-AUTH_USER_MODEL = 'base.PlayerSecured'
+AUTH_USER_MODEL = 'base.User'
 
 
 # Internationalization
